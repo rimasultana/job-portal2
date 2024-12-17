@@ -40,7 +40,8 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-                {links}
+                {links
+                }
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">daisyUI</a>
@@ -50,9 +51,9 @@ const Navbar = () => {
            {links}
           </ul>
         </div>
-        <div className="navbar-end">
-          <Link to={"/register"}>Register</Link>
-          <a className="btn">Login</a>
+        <div className="navbar-end flex gap-3">
+          <Link to={"/register"} className="btn bg-green-500 text-white font-bold">Register</Link>
+         <Link to={"/signin"} className="btn bg-green-500 text-white font-bold">Sign In</Link>
         </div>
       </div>
     </>
