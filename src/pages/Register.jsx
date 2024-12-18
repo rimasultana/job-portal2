@@ -4,6 +4,7 @@ import animation from "../assets/animation.json";
 import { toast } from "react-hot-toast";
 import AuthContext from "../Context/AuthContext";
 import { Link } from "react-router-dom";
+import Google from "../Shared/Google";
 
 const Register = () => {
   const [passwordError, setPasswordError] = useState("");
@@ -117,13 +118,15 @@ const Register = () => {
             <p className="mt-4 text-center">
               Already have an account?{" "}
               <Link
-              to={"/signin"}
+                to={"/signin"}
                 className="text-primary font-bold link link-hover"
               >
                 Login
               </Link>
             </p>
           </form>
+          <div className="divider"> OR </div>
+          <Google />
         </div>
       </div>
     </div>
