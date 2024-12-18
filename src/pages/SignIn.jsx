@@ -1,12 +1,13 @@
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
-import animation from "../assets/login.json"
+import animation from "../assets/login.json";
 import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
+import Google from "../Shared/Google";
 
 const SignIn = () => {
-  const { signInUser} = useContext(AuthContext);
-  
+  const { signInUser } = useContext(AuthContext);
+
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -16,13 +17,12 @@ const SignIn = () => {
     console.log(email, password);
 
     signInUser(email, password)
-    .then(result =>{
-      console.log(result);
-    })
-    .catch(error =>{
-      console.log("error", error);
-    })
-
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
   };
 
   return (
@@ -80,6 +80,8 @@ const SignIn = () => {
               </Link>
             </p>
           </form>
+          <div className="divider"> OR </div>
+          <Google />
         </div>
       </div>
     </div>

@@ -5,23 +5,22 @@ import toast from "react-hot-toast/headless";
 import logo from "../assets/job.png";
 
 const Navbar = () => {
-  const { user, signOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  console.log(user);
 
   const signOutUser = () => {
-    signOut()
-      .then(() => {
-        toast.success("Successfully sign out!");
-      })
-      .catch((error) => {
-        toast.error("Failed to sign out!");
-      });
+    logOut();
+    toast.success("Successfully sign out!");
   };
   const links = (
     <>
       <li>
         <NavLink
           className={({ isActive }) =>
-            `hover:text-black transition ${isActive ? "text-primary bg-red-500" : ""}`
+            `hover:text-black transition ${
+              isActive ? "text-primary bg-red-500" : ""
+            }`
           }
           to="/"
         >
@@ -31,7 +30,9 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({ isActive }) =>
-            `hover:text-black transition ${isActive ? "text-primary bg-red-500" : ""}`
+            `hover:text-black transition ${
+              isActive ? "text-primary bg-red-500" : ""
+            }`
           }
           to="/about"
         >
@@ -41,11 +42,13 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({ isActive }) =>
-            `hover:text-black transition ${isActive ? "text-primary bg-red-500" : ""}`
+            `hover:text-black transition ${
+              isActive ? "text-primary bg-red-500" : ""
+            }`
           }
           to="/service"
         >
-         Service
+          Service
         </NavLink>
       </li>
     </>
