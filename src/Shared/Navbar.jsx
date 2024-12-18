@@ -1,17 +1,52 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import AuthContext from "../Context/AuthContext";
+import toast from "react-hot-toast/headless";
+import logo from "../assets/job.png";
 
 const Navbar = () => {
+  const { user, signOut } = useContext(AuthContext);
+
+  const signOutUser = () => {
+    signOut()
+      .then(() => {
+        toast.success("Successfully sign out!");
+      })
+      .catch((error) => {
+        toast.error("Failed to sign out!");
+      });
+  };
   const links = (
     <>
       <li>
-        <a>Item 1</a>
+        <NavLink
+          className={({ isActive }) =>
+            `hover:text-black transition ${isActive ? "text-primary bg-red-500" : ""}`
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <a>Parent</a>
+        <NavLink
+          className={({ isActive }) =>
+            `hover:text-black transition ${isActive ? "text-primary bg-red-500" : ""}`
+          }
+          to="/about"
+        >
+          About
+        </NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+        <NavLink
+          className={({ isActive }) =>
+            `hover:text-black transition ${isActive ? "text-primary bg-red-500" : ""}`
+          }
+          to="/service"
+        >
+         Service
+        </NavLink>
       </li>
     </>
   );
@@ -40,20 +75,43 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-                {links
-                }
+              {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">
+            <img className="w-12" src={logo} alt="job-logo" />
+            <h3>Job portal</h3>
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-           {links}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end flex gap-3">
-          <Link to={"/register"} className="btn bg-green-500 text-white font-bold">Register</Link>
-         <Link to={"/signin"} className="btn bg-green-500 text-white font-bold">Sign In</Link>
+          {user ? (
+            <>
+              <button
+                onClick={signOutUser}
+                className="btn text-white font-bold bg-green-500"
+              >
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to={"/register"}
+                className="btn bg-green-500 text-white font-bold"
+              >
+                Register
+              </Link>
+              <Link
+                to={"/signin"}
+                className="btn bg-green-500 text-white font-bold"
+              >
+                Sign In
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </>
