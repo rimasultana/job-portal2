@@ -9,14 +9,14 @@ const Banner = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="flex-1">
             <motion.img
-            animate={{ y: [50, 100, 50]}}
-            transition={{duration: 5,  repeat: Infinity }}
+              animate={{ y: [50, 100, 50] }}
+              transition={{ duration: 5, repeat: Infinity }}
               src={team1}
               className="max-w-sm w-64 rounded-tl-[40px]  border-l-4 border-b-4 border-blue-700 shadow-2xl"
             />
             <motion.img
-            animate={{ x: [100, 150, 100]}}
-            transition={{duration: 5, delay:5, repeat: Infinity }}
+              animate={{ x: [100, 150, 100] }}
+              transition={{ duration: 5, delay: 5, repeat: Infinity }}
               src={team2}
               className="max-w-sm w-64 rounded-tl-[40px]  border-l-4 border-b-4 border-blue-700 shadow-2xl"
             />
@@ -42,9 +42,8 @@ const Banner = () => {
               For you!
             </motion.h1>
             <p className="py-8">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut <br /> assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut 
-              repudiandae et a id nisi.
+              Provident cupiditate voluptatem et in. Quaerat fugiat ut 
+              excepturi exercitationem quasi. In deleniti eaque aut
             </p>
             <button className="btn btn-primary">Get Started</button>
           </div>
