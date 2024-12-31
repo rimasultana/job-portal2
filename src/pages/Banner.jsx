@@ -15,7 +15,7 @@ const Banner = () => {
               className="max-w-sm w-64 rounded-tl-[40px]  border-l-4 border-b-4 border-blue-700 shadow-2xl"
             />
             <motion.img
-              animate={{ x: [100, 150, 100] }}
+              animate={{ x: [50, 100, 50] }}
               transition={{ duration: 5, delay: 5, repeat: Infinity }}
               src={team2}
               className="max-w-sm w-64 rounded-tl-[40px]  border-l-4 border-b-4 border-blue-700 shadow-2xl"
@@ -23,7 +23,7 @@ const Banner = () => {
           </div>
           <div>
             <motion.h1
-              animate={{ x: 50, color: ["green"] }}
+              animate={{ x: 30, color: ["green"] }}
               transition={{
                 duration: 2,
                 repeat: Infinity,
