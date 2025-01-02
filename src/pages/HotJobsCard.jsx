@@ -1,4 +1,3 @@
-import { p } from "motion/react-client";
 import { IoLocation } from "react-icons/io5";
 
 const HotJobsCard = ({ job }) => {
@@ -16,7 +15,7 @@ const HotJobsCard = ({ job }) => {
     location,
   } = job;
   return (
-    <div>
+    <>
       <div className="card card-compact  bg-base-100 shadow-xl">
         <div className="flex gap-2 m-2">
           <figure>
@@ -40,16 +39,19 @@ const HotJobsCard = ({ job }) => {
 
           <p>{description}</p>
           <div className="flex gap-2 flex-wrap">
-            {
-                requirements.map(skill => <p className="border rounded-md py-2 text-center hover:bg-red-200 hover:text-green-500">{skill}</p>)
-            }
+            {requirements.map((skill) => (
+              <p className="border rounded-md py-2 text-center hover:bg-red-200 hover:text-green-500">
+                {skill}
+              </p>
+            ))}
           </div>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
+          <div className="card-actions justify-end items-center">
+            <p>Salary: {salaryRange.min}- {salaryRange.max} {salaryRange.currency}</p>
+            <button className="btn btn-primary">Apply</button>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
