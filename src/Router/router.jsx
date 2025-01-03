@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import SignIn from "../pages/SignIn";
 import About from "../pages/About";
 import ServiceFeatures from "../pages/ServiceFeatures";
+import JobDetails from "../pages/JobDetails";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,13 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/job/:id",
+        element: <JobDetails />,
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/job/${params.id}`);
+        },
+      },
+      {
         path: "/register",
         element: <Register />,
       },
@@ -25,14 +33,13 @@ const router = createBrowserRouter([
         element: <SignIn />,
       },
       {
-        path:"/about",
-        element:<About/>
+        path: "/about",
+        element: <About />,
       },
       {
-        path:"/servicefeatures",
-        element:<ServiceFeatures/>
-      }
-    
+        path: "/servicefeatures",
+        element: <ServiceFeatures />,
+      },
     ],
   },
 ]);

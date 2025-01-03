@@ -1,4 +1,5 @@
 import { IoLocation } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const HotJobsCard = ({ job }) => {
   const {
@@ -13,6 +14,7 @@ const HotJobsCard = ({ job }) => {
     salaryRange,
     applicationDeadline,
     location,
+    _id,
   } = job;
   return (
     <>
@@ -39,15 +41,23 @@ const HotJobsCard = ({ job }) => {
 
           <p>{description}</p>
           <div className="flex gap-2 flex-wrap">
-            {requirements.map((skill) => (
-              <p className="border rounded-md py-2 text-center hover:bg-red-200 hover:text-green-500">
+            {requirements.map((skill, index) => (
+              <p
+                key={index}
+                className="border rounded-md py-2 text-center hover:bg-red-200 hover:text-green-500"
+              >
                 {skill}
               </p>
             ))}
           </div>
           <div className="card-actions justify-end items-center">
-            <p>Salary: {salaryRange.min}- {salaryRange.max} {salaryRange.currency}</p>
-            <button className="btn btn-primary">Apply</button>
+            <p>
+              Salary: {salaryRange.min}- {salaryRange.max}{" "}
+              {salaryRange.currency}
+            </p>
+            <Link to={`/job/${_id}`}>
+              <button className="btn btn-primary">Apply</button>
+            </Link>
           </div>
         </div>
       </div>
